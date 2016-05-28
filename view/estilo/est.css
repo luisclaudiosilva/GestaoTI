@@ -1,0 +1,121 @@
+html,
+body {
+	height: 100%;
+}
+
+.geral {
+	min-height: 100%;
+	position: relative;
+}
+
+h1 {
+	font-size: 40px;
+	color: #6a5ed6;
+	text-align: center;
+}
+
+.cli {
+	background-color: #F5F5F5;
+	height: 400px;
+	margin-right: 50px;
+	margin-left: 100px;
+	text-align: center;
+	width: 85%;
+	padding-top: 3px;
+	padding-bottom: 60px;
+	box-shadow: 0px 0px 10px black;
+}
+
+.head {
+	text-align: center;
+	background-color: #F5F5F5;
+	height: 100px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	margin-left: 100px;
+	margin-right: 50px;
+	padding-top: 10px;
+	width: 85%;
+	box-shadow: 0px 0px 10px black;
+
+}
+
+.rod {
+	text-align: center;
+	background-color: #F5F5F5;
+	height: 100px;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	width: 85%;
+	box-shadow: 0px 0px 10px black;
+
+}
+
+#idade {
+	width: 40px;
+}
+
+li {
+	width: 50px;
+}
+ 
+ul {
+	width: 100px;
+	margin-left: 45%;
+	
+}
+
+#tabela {
+	font-size: 20px;
+	background-color: #BEBEBE;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+    border: 2px solid  #000000;
+    border-collapse: collapse;
+    width: 52em;
+    border: 1px solid #666;
+}
+
+thead {
+  background: #ccc url(http://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
+  border-top: 1px solid #a5a5a5;
+  border-bottom: 1px solid #a5a5a5;
+}
+
+tr:hover {
+  background-color:#3d80df;
+  color: #fff;
+}
+thead tr:hover {
+  background-color: transparent;
+  color: inherit;
+}
+tr:nth-child(even) {
+    background-color: #edf5ff;
+}
+th {
+  font-weight: normal;
+  text-align: left;
+}
+th, td {
+  padding: 0.3em 1em;
+}
+
+#panel {
+	overflow: auto;
+	margin-right: 1%;
+	margin-left: 3%;
+	height: 355px;
+}
+
+#linha1 {
+	font-weight: bold;
+	font-size: 22px;
+}
+
+
