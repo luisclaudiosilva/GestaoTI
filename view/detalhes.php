@@ -9,22 +9,20 @@
 <meta charset="utf-8"/>
 <title>Semana de Gestão</title>
 <link rel="stylesheet" type="text/css" href="../view/estilo/est.css"/>
+<link rel="stylesheet" href="../view/css/bootstrap.css">
 <script type="text/javascript" src="../view/js/script.js"></script>
 
 </head>
 
 <body>
-<div class="geral">
 
-<header>
-<div class="head">
+<div class="jumbotron">
 <h1>Semana de Gestão</h1>
 </div>
-</header>
-<div class="cli">
-	<h2>Eventos</h2>
-<?php
 
+<div class="container">
+	<h2>Detalhes do Evento</h2>
+<?php	
 $id = $_GET['id'];
 
 
@@ -32,21 +30,18 @@ include_once("../crud/select_detalhe.php");
 
 while ($linha = pg_fetch_array($query)) {
 
-	echo "<div id='panel_det'>Detalhes do evento</br></br></br>".$linha['resumo']."</br></br><p><i>".$linha['detalhe'];
-	echo "</i></p></div>";
+	echo "<div id='panel_det'>
+			</br>".$linha['resumo']."</br></br>
+				".$linha['detalhe'];
+		
 }
-?>
-<input type="button" value="Voltar" onclick="chama();" />
-</div>	
-<footer>
-<div class="rod">
-	<p><i>Sistema de Gerenciamento dos Eventos da Semana de Gestão</i></p>
-	<p>Criado por <i>Luis Cláudio</i></p>
-		<p>Todos os direitos reservados &copy; 2016.</p>
 
-</div>
-</footer>
-</div>
+
+echo "<div class='row'>
+<input type='button' class='btn btn-default2' value='Voltar' onclick='chama2($id);' />
+
+</div>";
+?>
 </body>
 
 </html>

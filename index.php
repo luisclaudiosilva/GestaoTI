@@ -9,33 +9,49 @@
 <meta charset="utf-8"/>
 <title>Semana de Gestão</title>
 <link rel="stylesheet" type="text/css" href="view/estilo/est.css"/>
+<link rel="stylesheet" href="view/css/bootstrap.css">
 <script type="text/javascript" src="view/js/script.js"></script>
 
 </head>
-
 <body>
-<div class="geral">
-
-<header>
-<div class="head">
+<div class="jumbotron">
 <h1>Semana de Gestão</h1>
-</div>
-</header>
-<div class="cli">
-	<h2>Eventos</h2>
-<?php
-include_once("view/lista.php");
-?>
-</div>	
-<footer>
-<div class="rod">
-	<p><i>Sistema de Gerenciamento dos Eventos da Semana de Gestão</i></p>
-	<p>Criado por <i>Luis Cláudio</i></p>
-		<p>Todos os direitos reservados &copy; 2016.</p>
+<h2>Este sistema tem o objetivo de mostrar e avaliar os eventos da Semana de Gestão e Tecnologia.</h2>
 
 </div>
-</footer>
-</div>
+
+<div class="container">
+<h2 class="bg-primary text-center">Avaliar eventos</h2>
+<select onchange="window.location=this.value;" id="menu1" class="form-control" name="menu1">
+    
+   <?php 
+   include('crud/select_avaliar.php');
+   echo "<option value='#'>Selecione...</option>"; ?>
+    <?php
+     while($prod = pg_fetch_array($query)) { ?>
+    <option value="view/avalia.php?id=<?php echo $prod['id_evento'] ?>"><?php echo $prod['tema'] ?></option>
+    <?php } ?>
+  </select>
+<br><br><br>
+
+<h2 class="bg-primary2 text-center">Eventos avaliados</h2>
+
+  <select onchange="window.location=this.value;" id="menu1" class="form-control" name="menu1">
+    
+   <?php 
+   include('crud/select_avaliados.php');
+   echo "<option value='#'>Selecione...</option>"; ?>
+    <?php
+     while($prod = pg_fetch_array($query)) { ?>
+    <option value="view/avalia.php?id=<?php echo $prod['id_evento'] ?>"><?php echo $prod['tema'] ?></option>
+    <?php } 
+    echo "<option value='view/mostrar_avaliados.php'>Todos</option>";
+    ?>
+  </select>
+
+</div>	
+</div>	
+
 </body>
 
 </html>

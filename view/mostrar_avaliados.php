@@ -13,38 +13,47 @@
 <script type="text/javascript" src="../view/js/script.js"></script>
 
 </head>
+
 <body>
+
 <div class="jumbotron">
 <h1>Semana de Gestão</h1>
+
 </div>
 
 <div class="container">
-<h2>Avaliação do evento</h2>
-<?php
-$id = $_GET['id'];
-include('../crud/select_evento.php');
+	<h2>Eventos Avaliados</h2>
+	<?php
 
-echo "<div id='panel_avalia'><table class='table table-hover table-bordered table-striped' border='1'>
+include('../crud/select_avaliados2.php');
+echo "<br/>";
+
+echo "<div id='panel'><table class='table table-hover table-bordered table-striped' border='1'>
 <thead>
+
 <tr id='linha1'>
+	
 	<td>Tipo</td>
 	<td>Tema</td>
 	<td>Integrante(s)</td>
 	<td>Responsável</td>
 	<td>Curso</td>
 	<td>Data</td>
+	<td>Média</td>
 	<td>Detalhes</td>
 </tr>
 </thead>";
 while ($linha = pg_fetch_array($query)) {
 	
 	echo "<tbody><tr>
+	     
 		 <td>".$linha['tipo']."</td>
 	     <td>".$linha['tema']."</td>
 	     <td>".$linha['integrante']."</td>
 	     <td>".$linha['responsavel']."</td>
 	     <td>".$linha['curso']."</td>
 	     <td>".$linha['data_evento']."</td>
+	     <td>".$linha['media_notas']."</td>
 	     <td id='td_link'><a href='detalhes.php?id=".$linha['id_evento']."'>Ver</a></td>
 	     </tr>";
 }
@@ -52,60 +61,13 @@ while ($linha = pg_fetch_array($query)) {
 echo "</tbody></table></div>";
 
 pg_close($con);
-
-include_once('../crud/select_notas.php');
-$resel = pg_fetch_array($query);
-if(!$resel){
-	pg_close($con);
-	include_once('form.php');
-
-}else{
-	pg_close($con);
-
-include('../crud/select_notas.php');
-echo "<h2>Notas</h2>";
-
-echo "<div id='panel_avalia'><table class='table table-hover table-bordered table-striped' border='1'>
-<thead>
-<tr id='linha1'>
-	<td></td>
-	<td>Pertinencia</td>
-	<td>Coerencia</td>
-	<td>Inovação</td>
-	<td>Desenvoltura</td>
-	<td>Slide</td>
-	<td>Data</td>
-	<td>Média</td>
-</tr>
-</thead>";
-while ($linha = pg_fetch_array($query)) {
-	
-	echo "<tbody><tr>
-	     <td>Notas</td>
-		 <td>".$linha['pertinencia']."</td>
-	     <td>".$linha['coerencia']."</td>
-	     <td>".$linha['inovacao']."</td>
-	     <td>".$linha['desenvoltura']."</td>
-	     <td>".$linha['slide']."</td>
-	     <td>".$linha['tempo']."</td>
-	     <td>".$linha['media_notas']."</td>
-	     </tr>
-	     ";
-}
-
-echo "</tbody></table>
-<div class='row'>
-<input type='button' class='btn btn-default' value='Voltar' onclick='chama();'' />
-</div>
-</div>";
-
-pg_close($con);
-
-}
-
 ?>
+<div class='row'>
+<input type='button' class='btn btn-default' value='Voltar' onclick='chama();' />
+</div>
 
 </div>	
+
 
 </body>
 
